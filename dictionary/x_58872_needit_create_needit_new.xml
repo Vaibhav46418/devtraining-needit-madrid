@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" label="Create Needit " max_length="40" name="x_58872_needit_create_needit_new" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="State" max_length="40" name="state" type="condition_string"/>
+        <element attributes="base_start=true" label="Additional comments" max_length="80" name="u_additional_comments" type="table_name"/>
+        <element attributes="edge_encryption_enabled=true" label="Discription" max_length="1000" name="u_discription" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="[low]" label="Preiority" max_length="40" name="u_preiority" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Low" sequence="0" value="[low]"/>
+                <element inactive_on_update="false" label="Modrate" sequence="1" value="[modrate]"/>
+                <element inactive_on_update="false" label="High" sequence="2" value="[high]"/>
+            </choice>
+        </element>
+        <element label="Requested for" mandatory="true" max_length="32" name="u_reqested_for" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="[leagle]" label="Reqested type" mandatory="true" max_length="40" name="u_reqested_type" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Human Resources" sequence="0" value="hr"/>
+                <element inactive_on_update="false" label="Faculties" sequence="1" value="[faculties]"/>
+                <element inactive_on_update="false" label="Leagle" sequence="2" value="[leagle]"/>
+                <element inactive_on_update="false" label="Your Department Choise" sequence="3" value="your_choise"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Short discription" mandatory="true" max_length="125" name="u_short_discription" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="13" label="State" mandatory="true" max_length="40" name="u_state" type="string">
+            <choice>
+                <element inactive="true" inactive_on_update="true" label="New" sequence="0" value="new"/>
+                <element inactive_on_update="false" label="Reqested" sequence="0" value="13"/>
+                <element inactive_on_update="false" label="Awaiting Approval" sequence="1" value="14"/>
+                <element inactive="true" inactive_on_update="true" label="Work Inprogress" sequence="1" value="progress"/>
+                <element inactive_on_update="false" label="Approved" sequence="2" value="15"/>
+                <element inactive="true" inactive_on_update="true" label="Closed Completed" sequence="2" value="pending"/>
+                <element inactive_on_update="false" label="Awaiting Feedback" sequence="3" value="16"/>
+                <element inactive="true" inactive_on_update="true" label="Closed Incompleted" sequence="3" value="resolved"/>
+                <element inactive_on_update="false" label="Closed Complete" sequence="4" value="3"/>
+                <element inactive="true" inactive_on_update="true" label="Closed Skipped" sequence="4" value="skipped"/>
+                <element inactive_on_update="false" label="withdrawn" sequence="5" value="8"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="New String" max_length="40" name="u_string_8" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="[leagle1]" label="What needed" mandatory="true" max_length="40" name="u_what_needed" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Human Resources 1" sequence="0" value="[hr1]"/>
+                <element inactive_on_update="false" label="Human Resources 2" sequence="1" value="[hr2]"/>
+                <element inactive_on_update="false" label="Facilities 1" sequence="2" value="[facilities1]"/>
+                <element inactive_on_update="false" label="Facilities 2" sequence="3" value="[facilities2]"/>
+                <element inactive_on_update="false" label="Leagle 1" sequence="4" value="[leagle1]"/>
+                <element inactive_on_update="false" label="Leagle 2" sequence="5" value="[leagle2]"/>
+                <element inactive_on_update="false" label="Your Department Choise 1" sequence="6" value="[your_choise1]"/>
+                <element inactive_on_update="false" label="Your Department Choise 2" sequence="7" value="[your_choise2]"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="When needed" mandatory="true" max_length="40" name="u_when_needed" type="glide_date_time"/>
+        <element attributes="is_multi_text=true,preview_first=true,preview_selector=true" label="Work notes" max_length="65536" name="u_work_notes" reference="pa_score_notes" type="wiki_text"/>
+        <index name="index">
+            <element name="u_reqested_for"/>
+        </index>
+    </element>
+</database>
